@@ -154,6 +154,112 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-jumptop" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/hexo/2018/06/20/jumptop/">Top按钮的出现与隐藏 scrollTop使用</a>
+    </h1>
+  
+
+        
+        <a href="/hexo/2018/06/20/jumptop/" class="archive-article-date">
+  	<time datetime="2018-06-20T09:48:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-20</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<p>-Asagi 随笔-</p>
+<pre><code>body{
+margin: 0;
+padding: 0;
+height: 2000px;
+}
+
+.box{
+width: 30px;
+height: 30px;
+opacity: 0;
+text-align: center;
+line-height: 30px;
+position: fixed;
+right: 50px;
+bottom: 80px;
+color: white;
+background-color: red;
+}
+
+.asagi{
+position: fixed;
+bottom: 20px;
+left: 10px;
+}
+
+.box_m{
+opacity: .5;
+}
+.box:hover{
+opacity: .8;
+}       
+
+$(window).scroll(function () {               
+    if ($(window).scrollTop() &gt; 200)
+    {
+    $(&quot;#box&quot;).addClass(&apos;box_m&apos;);
+}
+
+else{
+$(&quot;#box&quot;).removeClass(&apos;box_m&apos;);
+}})
+</code></pre><hr>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/hexo/2018/06/20/jumptop/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-text" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
