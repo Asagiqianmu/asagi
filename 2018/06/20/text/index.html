@@ -6,16 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://asagiqianmu.github.io">
-  <title>text | Hexo</title>
+  <title>select操作 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="article">
-<meta property="og:title" content="text">
+  <meta name="description" content="select根据后台值显示当前值$(&amp;quot;#editHousingtypes option[value=&amp;apos;&amp;quot;+data.data.houseType+&amp;quot;&amp;apos;]&amp;quot;).attr(&amp;quot;selected&amp;quot;,&amp;quot;selected&amp;quot;);   选择当前选中的val$(&amp;quot;#addHousingtypes optio">
+<meta property="og:type" content="article">
+<meta property="og:title" content="select操作">
 <meta property="og:url" content="https://asagiqianmu.github.io/2018/06/20/text/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="select根据后台值显示当前值$(&amp;quot;#editHousingtypes option[value=&amp;apos;&amp;quot;+data.data.houseType+&amp;quot;&amp;apos;]&amp;quot;).attr(&amp;quot;selected&amp;quot;,&amp;quot;selected&amp;quot;);   选择当前选中的val$(&amp;quot;#addHousingtypes optio">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-06-20T07:47:17.163Z">
+<meta property="og:image" content="http://www.asagi.top/images/signature.png">
+<meta property="og:updated_time" content="2018-06-20T09:39:06.820Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="text">
+<meta name="twitter:title" content="select操作">
+<meta name="twitter:description" content="select根据后台值显示当前值$(&amp;quot;#editHousingtypes option[value=&amp;apos;&amp;quot;+data.data.houseType+&amp;quot;&amp;apos;]&amp;quot;).attr(&amp;quot;selected&amp;quot;,&amp;quot;selected&amp;quot;);   选择当前选中的val$(&amp;quot;#addHousingtypes optio">
+<meta name="twitter:image" content="http://www.asagi.top/images/signature.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -44,7 +49,7 @@
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
-			<img src="" class="js-avatar">
+			<img src="http://www.asagi.top/images/logo_b.png" class="js-avatar">
 		</a>
 		<hgroup>
 		  <h1 class="header-author"><a href="/">Asagi</a></h1>
@@ -55,6 +60,8 @@
 			<ul>
 			
 				<li><a href="/hexo/">主页</a></li>
+	        
+				<li><a href="/hexo/tags/笔记/">笔记</a></li>
 	        
 				<li><a href="/hexo/tags/随笔/">随笔</a></li>
 	        
@@ -78,13 +85,11 @@
 		<nav class="header-nav">
 			<div class="social">
 				
-					<a class="github" target="_blank" href="#" title="github"><i class="icon-github"></i></a>
+					<a class="github" target="_blank" href="https://github.com/Asagiqianmu/hexo.git" title="github"><i class="icon-github"></i></a>
 		        
-					<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
+					<a class="weibo" target="_blank" href="https://weibo.com/u/5311400301" title="weibo"><i class="icon-weibo"></i></a>
 		        
-					<a class="rss" target="_blank" href="#" title="rss"><i class="icon-rss"></i></a>
-		        
-					<a class="zhihu" target="_blank" href="#" title="zhihu"><i class="icon-zhihu"></i></a>
+					<a class="mail" target="_blank" href="Asagi:1175609090@qq.com" title="mail"><i class="icon-mail"></i></a>
 		        
 			</div>
 		</nav>
@@ -102,7 +107,7 @@
 	<div class="intrude-less">
 		<header id="header" class="inner">
 			<div class="profilepic">
-				<img src="" class="js-avatar">
+				<img src="http://www.asagi.top/images/logo_b.png" class="js-avatar">
 			</div>
 			<hgroup>
 			  <h1 class="header-author js-header-author">Asagi</h1>
@@ -114,29 +119,31 @@
 			
 				
 			
+				
+			
 			
 			
 			<nav class="header-nav">
 				<div class="social">
 					
-						<a class="github" target="_blank" href="#" title="github"><i class="icon-github"></i></a>
+						<a class="github" target="_blank" href="https://github.com/Asagiqianmu/hexo.git" title="github"><i class="icon-github"></i></a>
 			        
-						<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
+						<a class="weibo" target="_blank" href="https://weibo.com/u/5311400301" title="weibo"><i class="icon-weibo"></i></a>
 			        
-						<a class="rss" target="_blank" href="#" title="rss"><i class="icon-rss"></i></a>
-			        
-						<a class="zhihu" target="_blank" href="#" title="zhihu"><i class="icon-zhihu"></i></a>
+						<a class="mail" target="_blank" href="Asagi:1175609090@qq.com" title="mail"><i class="icon-mail"></i></a>
 			        
 				</div>
 			</nav>
 
 			<nav class="header-menu js-header-menu">
-				<ul style="width: 50%">
+				<ul style="width: 70%">
 				
 				
-					<li style="width: 50%"><a href="/hexo/">主页</a></li>
+					<li style="width: 33.333333333333336%"><a href="/hexo/">主页</a></li>
 		        
-					<li style="width: 50%"><a href="/hexo/tags/随笔/">随笔</a></li>
+					<li style="width: 33.333333333333336%"><a href="/hexo/tags/笔记/">笔记</a></li>
+		        
+					<li style="width: 33.333333333333336%"><a href="/hexo/tags/随笔/">随笔</a></li>
 		        
 				</ul>
 			</nav>
@@ -158,7 +165,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      text
+      select操作
     </h1>
   
 
@@ -171,7 +178,13 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h2 id="select根据后台值显示当前值"><a href="#select根据后台值显示当前值" class="headerlink" title="select根据后台值显示当前值"></a><strong>select根据后台值显示当前值</strong></h2><pre><code>$(&quot;#editHousingtypes option[value=&apos;&quot;+data.data.houseType+&quot;&apos;]&quot;).attr(&quot;selected&quot;,&quot;selected&quot;);  
+</code></pre><h2 id="选择当前选中的val"><a href="#选择当前选中的val" class="headerlink" title="选择当前选中的val"></a><strong>选择当前选中的val</strong></h2><pre><code>$(&quot;#addHousingtypes option:selected&quot;).val()
+</code></pre><hr>
+<ul>
+<li><img src="http://www.asagi.top/images/signature.png" alt="此处输入图片的描述"></li>
+</ul>
+
       
 
       
@@ -265,8 +278,8 @@
 <nav id="article-nav">
   
   
-    <a href="/hexo/2018/06/20/asagi/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">asagi</div>
+    <a href="/hexo/2018/06/20/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Hello World</div>
       <i class="icon-circle-right"></i>
     </a>
   
