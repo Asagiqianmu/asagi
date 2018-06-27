@@ -1,0 +1,26 @@
+---
+layout: "works"       
+title: 我的作品       
+date: 2017-04-11 21:14:32
+---
+
+
+---
+photos:
+  - /postImg/3.jpg  
+title: 每周烧脑-1
+   tags: [Javascript]     
+layout: post        
+comments: true      
+categories: [Javascript]          
+date: 2017-04-03 00:29:49
+---
+
+---
+title: 六州歌头·少年侠气          
+layout: post      
+tags: [诗词]        
+comments: true       
+categories: [poem]
+          date: 2017-03-11 17:12:49
+---
