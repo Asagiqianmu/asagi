@@ -6,15 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://www.asagi.top">
-  <title>Tag: 随笔 | Asagi</title>
+  <title>常用操作 | Asagi</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Asagi">
-<meta property="og:url" content="https://www.asagi.top/tags/随笔/index.html">
+  <meta name="description" content="一、预加载图像 如果你的网页中需要使用大量初始不可见的（例如，悬停的）图像，那么可以预加载这些图像。         $.preloadImages = function () {          for (var i = 0; i &amp;lt; arguments.length; i++){              $(&apos;&apos;).attr(&apos;src&apos;, arguments[i]);">
+<meta name="keywords" content="前端,书籍,angular,JavaScript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="常用操作">
+<meta property="og:url" content="https://www.asagi.top/2018/09/04/js-jquery/index.html">
 <meta property="og:site_name" content="Asagi">
+<meta property="og:description" content="一、预加载图像 如果你的网页中需要使用大量初始不可见的（例如，悬停的）图像，那么可以预加载这些图像。         $.preloadImages = function () {          for (var i = 0; i &amp;lt; arguments.length; i++){              $(&apos;&apos;).attr(&apos;src&apos;, arguments[i]);">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-09-04T13:12:42.807Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Asagi">
+<meta name="twitter:title" content="常用操作">
+<meta name="twitter:description" content="一、预加载图像 如果你的网页中需要使用大量初始不可见的（例如，悬停的）图像，那么可以预加载这些图像。         $.preloadImages = function () {          for (var i = 0; i &amp;lt; arguments.length; i++){              $(&apos;&apos;).attr(&apos;src&apos;, arguments[i]);">
   
     <link rel="alternative" href="/atom.xml" title="Asagi" type="application/atom+xml">
   
@@ -154,60 +159,809 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="tags-js-jquery" class="article article-type-tags " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-asagi">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/06/28/随笔/" class="archive-article-date">
-  	<time datetime="2018-06-28T11:10:37.135Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-28</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/06/28/随笔/">随笔</a>
+    <h1 class="article-title" itemprop="name">
+      常用操作
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2018/09/04/js-jquery/" class="archive-article-date">
+  	<time datetime="2018-09-04T13:01:55.596Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-04</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<h1 id="一、预加载图像"><a href="#一、预加载图像" class="headerlink" title="一、预加载图像"></a>一、预加载图像</h1><p> 如果你的网页中需要使用大量初始不可见的（例如，悬停的）图像，那么可以预加载这些图像。</p>
+</blockquote>
+ <pre>
+     $.preloadImages = function () {
+         for (var i = 0; i < arguments.length; i++){
+             $('<img>').attr('src', arguments[i]);
+         }
+     }
+     $.preloadImages('img/hover-on.png','img/hover-off.png');
+ </pre>    
+---
+
+> # 二、检查图像是否加载
+有时为了继续脚本，你可能需要检查图像是否全部加载完毕
+
+ <pre>
+     $('img').load(function（）{
+         console.log('image load successful')
+     })
+ </pre>
+
+<h2 id="你也可以使用-ID-或-CLASS-替换-标签来检查某个特定的图像是否被加载。"><a href="#你也可以使用-ID-或-CLASS-替换-标签来检查某个特定的图像是否被加载。" class="headerlink" title=" 你也可以使用 ID 或 CLASS 替换 标签来检查某个特定的图像是否被加载。"></a> 你也可以使用 ID 或 CLASS 替换<img> 标签来检查某个特定的图像是否被加载。</h2><a id="more"></a>
+<blockquote>
+<h1 id="三、自动修复破坏的图像"><a href="#三、自动修复破坏的图像" class="headerlink" title="三、自动修复破坏的图像"></a>三、自动修复破坏的图像</h1><p> 逐个替换已经破坏的图像链接是非常痛苦的。不过，下面这段简单的代码可以帮助你。</p>
+</blockquote>
+ <pre>
+     $('img').on('error',function () {
+         if(!$(this).hasClass('broken-image')){
+             $(this).prop('scr', 'img/broken.png').addClass('broken-image');
+         }
+     })
+ </pre>
+---
+
+> # 四、悬停切换
+当用户鼠标悬停在可点击的元素上时，可添加类到元素中，反之则移除类。
+
+<pre>
+    $(selector).hover(function (){
+        $(this).addClass('hover');
+    },function () {
+        $(this).removelClass('hover');
+    }
+    })
+</pre>
+
+<p>只需要添加必要的 CSS 即可。更简单的方法是使用 toggleClass() 方法。</p>
+<pre>
+    $(selector).hover(function (){
+        $(this).taggleClass('hover');
+    })
+</pre>
+---
+
+> # 五、淡入淡出/显示隐藏
+
+<pre>
+    //fade
+    $('.btn').click(function (){
+        $('.element').fadeToggle('slow');
+    })
+
+    //Toggle
+    $('.btn').click(function (){
+        $('.element').slideToggle('slow');
+    })
+</pre>
+---
+
+> # 六、鼠标滚轮
+
+<pre>
+    $('#content').on("mousewheel DOMMouseScroll", function (event) {
+    // chrome & ie || // firefox
+        var delta = (event.originalEvent.wheelDelta && (event.originalEvent.wheelDelta > 0 ? 1 : -1)) ||
+            (event.originalEvent.detail && (event.originalEvent.detail > 0 ? -1 : 1));  
+        if (delta > 0) {
+            console.log('mousewheel top');
+        } else if (delta < 0) {
+            console.log('mousewheel bottom');
+        }
+    });
+</pre>
+---
+
+> # 七、鼠标坐标
+1、JavaScript实现
+
+<pre>
+    X:<input id="xxx" type="text"> Y:<input id="yyy" type="text">
+    function mousePosition(ev){
+        if(ev.pageX || ev.pageY){
+            return {x:ev.pageX, y:ev.pageY};
+        }
+        return {
+            x:ev.clientX + document.body.scrollLeft - document.body.clientLeft,
+            y:ev.clientY + document.body.scrollTop - document.body.clientTop
+        };
+    }
+    function mouseMove(ev){
+        ev = ev || window.event;
+        var mousePos = mousePosition(ev);
+        document.getElementById('xxx').value = mousePos.x;
+        document.getElementById('yyy').value = mousePos.y;
+    }
+
+    document.onmousemove = mouseMove;
+</pre>
+
+<p>2、jQuery实现</p>
+<pre>
+    $('#ele').click(function(event){
+        //获取鼠标在图片上的坐标
+        console.log('X：' + event.offsetX+'\n Y:' + event.offsetY);
+        //获取元素相对于页面的坐标
+        console.log('X：'+$(this).offset().left+'\n Y:'+$(this).offset().top);
+    });
+</pre>
+---
+
+> # 八、禁止移动端浏览器页面滚动
+
+1、HTML实现
+<pre>
+    <body ontouchmove="event.preventDefault()">
+</body></pre>
+
+<p>2、JavaScript实现</p>
+<pre>
+    document.addEventListener('touchmove', function(event) {
+        event.preventDefault();
+    });
+</pre>
+---
+
+> # 九、阻止默认行为
+
+<pre>
+    // JavaScript
+    document.getElementById('btn').addEventListener('click', function (event) {
+            event = event || window.event；
+            if (event.preventDefault){
+                // W3C
+                event.preventDefault();
+            } else{
+                // IE
+                event.returnValue = false;
+            }
+        }, false);
+        // jQuery
+        $('#btn').on('click', function (event) {
+            event.preventDefault();
+    });
+</pre>
+---
+
+> # 十、阻止冒泡
+
+<pre>
+    // JavaScript
+    document.getElementById('btn').addEventListener('click', function (event) {
+        event = event || window.event；
+        if (event.stopPropagation){
+            // W3C
+            event.stopPropagation();
+        } else{
+
+            // IE
+            event.cancelBubble = true;
+        }
+    }, false);
+    // jQuery
+
+    $('#btn').on('click', function (event) {
+        event.stopPropagation();
+    });
+</pre>
+---
+
+> # 十一、检测浏览器是否支持svg
+
+<pre>
+    function isSupportSVG() {
+        var SVG_NS = 'http://www.w3.org/2000/svg';
+        return !!document.createElementNS &&!!document.createElementNS(SVG_NS,'svg').createSVGRect;
+    }
+    console.log(isSupportSVG());
+</pre>
+---
+
+> # 十二、检测浏览器是否支持canvas
+
+<pre>
+    function isSupportCanvas() {
+        if(document.createElement('canvas').getContext){
+            return true;
+        }else{
+            return false;
+        }
+    }
+    console.log(isSupportCanvas());
+</pre>
+---
+
+> # 十三、检测是否是微信浏览器
+
+<pre>
+    function isWeiXinClient() {
+        var ua = navigator.userAgent.toLowerCase();
+        if (ua.match(/MicroMessenger/i)=="micromessenger") {
+            return true;
+        } else {
+            return false;
+           }
+        }
+    alert(isWeiXinClient());
+</pre>
+---
+
+> # 十四、检测是否移动端及浏览器内核
+
+<pre>
+    var browser = {
+    versions: function() {
+        var u = navigator.userAgent;
+        return {
+            trident: u.indexOf('Trident') > -1, //IE内核
+            presto: u.indexOf('Presto') > -1, //opera内核
+            webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
+            gecko: u.indexOf('Firefox') > -1, //火狐内核Gecko
+            mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否移动终端
+            ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios
+            android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android
+            iPhone: u.indexOf('iPhone') > -1 , //iPhone
+            iPad: u.indexOf('iPad') > -1, //iPad
+            webApp: u.indexOf('Safari') > -1 //Safari
+            };
+        }
+    }
+    if (browser.versions.mobile() || browser.versions.ios() || browser.versions.android() ||browser.versions.iPhone() || browser.versions.iPad()) {
+        alert('移动端');
+    }
+</pre>
+---
+
+> # 十五、检测是否电脑端/移动端
+
+<pre>
+    var browser={
+    versions:function(){
+        var u = navigator.userAgent, app = navigator.appVersion;
+        var sUserAgent = navigator.userAgent;
+        return {
+        trident: u.indexOf('Trident') > -1,
+        presto: u.indexOf('Presto') > -1,
+        isChrome: u.indexOf("chrome") > -1,
+        isSafari: !u.indexOf("chrome") > -1 && (/webkit|khtml/).test(u),
+        isSafari3: !u.indexOf("chrome") > -1 && (/webkit|khtml/).test(u) && u.indexOf('webkit/5')!= -1,
+        webKit: u.indexOf('AppleWebKit') > -1,
+        gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1,
+        mobile: !!u.match(/AppleWebKit.*Mobile.*/),
+        ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/),
+        android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1,
+        iPhone: u.indexOf('iPhone') > -1,
+        iPad: u.indexOf('iPad') > -1,
+        iWinPhone: u.indexOf('Windows Phone') > -1
+        };
+        }()
+    }
+
+    if(browser.versions.mobile || browser.versions.iWinPhone){
+        window.location = "http:/www.baidu.com/m/";
+    }
+</pre>
+---
+
+> # 十六、检测浏览器内核
+
+<pre>
+    function getInternet(){    
+        if(navigator.userAgent.indexOf("MSIE")>0) {    
+          return "MSIE";       //IE浏览器  
+        }  
+        if(isFirefox=navigator.userAgent.indexOf("Firefox")>0){    
+          return "Firefox";     //Firefox浏览器  
+        }  
+        if(isSafari=navigator.userAgent.indexOf("Safari")>0) {    
+          return "Safari";      //Safan浏览器  
+        }  
+        if(isCamino=navigator.userAgent.indexOf("Camino")>0){    
+          return "Camino";   //Camino浏览器  
+        }  
+        if(isMozilla=navigator.userAgent.indexOf("Gecko/")>0){    
+          return "Gecko";    //Gecko浏览器  
+        }   
+    }
+</pre>
+---
+
+> # 十七、强制移动端页面横屏显示
+
+<pre>
+    $( window ).on( "orientationchange", function( event ) {
+        if (event.orientation=='portrait') {
+            $('body').css('transform', 'rotate(90deg)');
+        } else {
+            $('body').css('transform', 'rotate(0deg)');
+        }
+    });
+
+    $( window ).orientationchange();
+</pre>
+---
+
+> # 十八、电脑端页面全屏显示
+
+<pre>
+    function fullscreen(element) {
+        if (element.requestFullscreen) {
+            element.requestFullscreen();
+        } else if (element.mozRequestFullScreen) {
+            element.mozRequestFullScreen();
+        } else if (element.webkitRequestFullscreen) {
+            element.webkitRequestFullscreen();
+        } else if (element.msRequestFullscreen) {
+            element.msRequestFullscreen();
+        }
+    }
+    fullscreen(document.documentElement);
+</pre>
+---
+
+> # 十九、获得/失去焦点
+
+1、JavaScript实现
+<pre>
+    <input id="i_input" type="text" value="会员卡号/手机号">
+
+    // JavaScript
+    window.onload = function(){
+        var oIpt = document.getElementById("i_input");
+        if(oIpt.value == "会员卡号/手机号"){
+            oIpt.style.color = "#888";
+        }else{
+            oIpt.style.color = "#000";
+        };
+        oIpt.onfocus = function(){
+            if(this.value == "会员卡号/手机号"){
+                this.value="";
+                this.style.color = "#000";
+                this.type = "password";
+            }else{
+                this.style.color = "#000";
+            }
+        };
+        oIpt.onblur = function(){
+            if(this.value == ""){
+                this.value="会员卡号/手机号";
+                this.style.color = "#888";
+                this.type = "text";
+            }
+        };
+    }
+</pre>
+
+<p>2、jQuery实现</p>
+<pre>
+    <input type="text" class="oldpsw" id="showPwd" value="请输入您的注册密码">
+    <input type="password" name="psw" class="oldpsw" id="password" value="" style="display:none;">
+
+    // jQuery
+    $("#showPwd").focus(function() {
+        var text_value=$(this).val();
+        if (text_value =='请输入您的注册密码') {
+            $("#showPwd").hide();
+            $("#password").show().focus();
+        }
+    });
+    $("#password").blur(function() {
+        var text_value = $(this).val();
+        if (text_value == "") {
+            $("#showPwd").show();
+            $("#password").hide();
+        }
+    });
+</pre>
+---
+
+> # 二十、获取上传文件大小
+
+<pre>
+    <input type="file" id="filePath" onchange="getFileSize(this)">
+
+    // 兼容IE9低版本
+    function getFileSize(obj){
+        var filesize;
+        if(obj.files){
+            filesize = obj.files[0].size;
+        }else{
+            try{
+                var path,fso;
+                path = document.getElementById('filePath').value;
+                fso = new ActiveXObject("Scripting.FileSystemObject");
+                filesize = fso.GetFile(path).size;
+            }
+            catch(e){
+                // 在IE9及低版本浏览器，如果不容许ActiveX控件与页面交互，点击了否，就无法获取size
+                console.log(e.message); // Automation 服务器不能创建对象
+                filesize = 'error'; // 无法获取
+            }
+        }
+        return filesize;
+    }
+</pre>
+---
+
+> # 二十一、限制上传文件类型
+
+1、高版本浏览器
+<pre>
+    <input type="file" name="filePath" accept=".jpg,.jpeg,.doc,.docxs,.pdf">    
+</pre>
+
+<p>2、限制图片</p>
+<pre>
+    <input type="file" class="file" value="上传" accept="image/*">
+</pre>
+
+<p>3、低版本浏览器</p>
+<pre>
+    <input type="file" id="filePath" onchange="limitTypes()">
+    /* 通过扩展名，检验文件格式。
+    * @parma filePath{string} 文件路径
+    * @parma acceptFormat{Array} 允许的文件类型
+    * @result 返回值{Boolen}：true or false
+    */
+    function checkFormat(filePath,acceptFormat){
+        var resultBool= false,
+            ex = filePath.substring(filePath.lastIndexOf('.') + 1);
+            ex = ex.toLowerCase();
+        for(var i = 0; i < acceptFormat.length; i++){
+        　　if(acceptFormat[i] == ex){
+                resultBool = true;
+                break;
+        　　}
+        }
+        return resultBool;
+    };     
+    function limitTypes(){
+        var obj = document.getElementById('filePath');
+        var path = obj.value;
+        var result = checkFormat(path,['bmp','jpg','jpeg','png']);
+        if(!result){
+            alert('上传类型错误，请重新上传');
+            obj.value = '';
+        }
+    }
+</pre>
+---
+
+> # 二十二、正则表达式
+
+<pre>
+    //验证邮箱
+    /^\w+@([0-9a-zA-Z]+[.])+[a-z]{2,4}$/
+
+    //验证手机号
+    /^1[3|5|8|7]\d{9}$/
+
+    //验证URL
+    /^http:\/\/.+\./
+
+    //验证身份证号码
+    /(^\d{15}$)|(^\d{17}([0-9]|X|x)$)/
+
+    //匹配字母、数字、中文字符
+    /^([A-Za-z0-9]|[\u4e00-\u9fa5])*$/     
+
+    //匹配中文字符
+    /[\u4e00-\u9fa5]/
+
+    //匹配双字节字符(包括汉字)
+    /[^\x00-\xff]/
+</pre>
+---
+
+> # 二十三、限制字符数
+
+<pre>
+    <input id="txt" type="text">
+
+    //字符串截取
+    function getByteVal(val, max) {
+        var returnValue = '';
+        var byteValLen = 0;
+        for (var i = 0; i < val.length; i++) { if (val[i].match(/[^\x00-\xff]/ig) != null) byteValLen += 2;else byteValLen += 1; if (byteValLen > max) break;
+            returnValue += val[i];
+        }
+        return returnValue;
+    }
+    $('#txt').on('keyup', function () {
+        var val = this.value;
+        if (val.replace(/[^\x00-\xff]/g, "**").length > 14) {
+            this.value = getByteVal(val, 14);
+        }
+    });
+</pre>
+---
+
+> # 二十四、验证码倒计时
+
+<pre>
+    <input id="send" type="button" value="发送验证码">
+
+    // JavaScript
+    var times = 60, // 时间设置60秒
+     timer = null;
+    document.getElementById('send').onclick = function () {
+         // 计时开始
+         timer = setInterval(function () {
+             times--;
+             if (times <= 0)="" {="" send.value="发送验证码" ;="" clearinterval(timer);="" send.disabled="false;" times="60;" }="" else="" +="" '秒后重试';="" },="" 1000);="" var="" timer="null;" $('#send').on('click',="" function="" ()="" $this="$(this);" 计时开始="" times--;="" if="" (times="" <="0)" $this.val('发送验证码');="" $this.attr('disabled',="" false);="" $this.val(times="" '秒后重试');="" true);="" });="" pre="">
+---
+
+> # 二十五、时间倒计时
+
+<pre>
+    <p id="_lefttime"></p>
+
+    var times = 60,
+        timer = null;
+    $('#send').on('click', function () {
+        var $this = $(this);
+        // 计时开始
+        timer = setInterval(function () {
+            times--;
+            if (times <= 0)="" {="" $this.val('发送验证码');="" clearinterval(timer);="" $this.attr('disabled',="" false);="" times="60;" }="" else="" $this.val(times="" +="" '秒后重试');="" true);="" },="" 1000);="" });="" <="" pre="">
+---
+
+> # 二十六、倒计时跳转
+
+<pre>
+    <div id="showtimes"></div>
+
+    // 设置倒计时秒数  
+    var t = 10;  
+    // 显示倒计时秒数  
+    function showTime(){  
+        t -= 1;  
+        document.getElementById('showtimes').innerHTML= t;  
+        if(t==0){  
+            location.href='error404.asp';  
+        }  
+        //每秒执行一次 showTime()  
+        setTimeout("showTime()",1000);  
+    }  
+    showTime();
+</pre>
+---
+
+> # 二十七、时间戳、毫秒格式化
+
+<pre>
+    function formatDate(now) {
+        var y = now.getFullYear();
+        var m = now.getMonth() + 1; // 注意 JavaScript 月份+1
+        var d = now.getDate();
+        var h = now.getHours();
+        var m = now.getMinutes();
+        var s = now.getSeconds();
+        return y + "-" + m + "-" + d + " " + h + ":" + m + ":" + s;
+    }
+    var nowDate = new Date(1442978789184);
+    alert(formatDate(nowDate));
+</pre>
+---
+
+> # 二十八、当前日期
+
+<pre>
+    var calculateDate = function(){
+        var date = new Date();
+        var weeks = ["日","一","二","三","四","五","六"];
+        return date.getFullYear()+"年"+(date.getMonth()+1)+"月"+
+        date.getDate()+"日 星期"+weeks[date.getDay()];
+    }
+    $(function(){
+        $("#dateSpan").html(calculateDate());
+    });
+</pre>
+---
+
+> # 二十九、判断周六/周日
+
+<pre>
+    <p id="text"></p>
+
+    function time(y,m){
+        var tempTime = new Date(y,m,0);
+        var time = new Date();
+        var saturday = new Array();
+        var sunday = new Array();
+        for(var i=1;i<=temptime.getdate();i++){ time.setfullyear(y,m-1,i);="" var="" day="time.getDay();" if(day="=" 6){="" saturday.push(i);="" }else="" 0){="" sunday.push(i);="" }="" text="y+"年"+m+"月份"+"<br">"
+                 +"周六："+saturday.toString()+"<br>"
+                 +"周日："+sunday.toString();
+        document.getElementById("text").innerHTML = text;
+    }
+    time(2018,5);
+</=temptime.getdate();i++){></pre>
+
+<blockquote>
+<h1 id="三十、AJAX调用错误处理"><a href="#三十、AJAX调用错误处理" class="headerlink" title="三十、AJAX调用错误处理"></a>三十、AJAX调用错误处理</h1><p>当 Ajax 调用返回 404 或 500 错误时，就执行错误处理程序。如果没有定义处理程序，其他的 jQuery 代码或会就此罢工。定义一个全局的 Ajax 错误处理程序</p>
+</blockquote>
+<pre>
+    $(document).ajaxError(function (e, xhr, settings ,error){
+        console.log(error);
+    });
+</pre>
+
+<blockquote>
+<h1 id="三十一、链式插件调用"><a href="#三十一、链式插件调用" class="headerlink" title="三十一、链式插件调用"></a>三十一、链式插件调用</h1></blockquote>
+<p>jQuery 允许“链式”插件的方法调用，以减轻反复查询 DOM 并创建多个 jQuery 对象的过程。</p>
+<pre>
+    $('#elem').show();
+    $('#elem').html('bla');
+    $('#elem').otherStuff();
+</pre>
+
+<p>通过使用链式，可以改善</p>
+<pre>
+    $('#elem').shoe().html('bla').otherStuff();
+</pre>
+
+<p>还有一种方法是在（前缀$）变量中高速缓存元素</p>
+<pre>
+    var $elem = $('#elem');
+        $elem.hide();
+        $elem.html('bla');
+        $elem.otherStuff();
+</pre>
+链式和高速缓存的方法都是 jQuery 中可以让代码变得更短和更快的最佳做法。
+
+> #手机号正则
+
+<pre>
+    function verifyMobile(val) {
+    var regex = /^(((13[0-9]{1})|(14[0-9]{1})|(15[0-9]{1})|(17[0-9]{1})|(18[0-9]{1})|(19[0-9]{1}))+\d{8})$/g;
+    if (!regex.test(val)) {
+        return false;
+    }
+    return true;
+    };
+</pre></=></pre></=></pre>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">书籍</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">angular</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://www.asagi.top/2018/09/04/js-jquery/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-  
-    </div></section>
-  
 
-    
+  
+<nav id="article-nav">
+  
+    <a href="/2018/09/04/hexo常用指令/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          hexo常用指令
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/06/28/随笔/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">随笔</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
 
 
           </div>
@@ -233,9 +987,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: true,
 		toc_hide_index: true,
